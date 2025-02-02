@@ -7,5 +7,7 @@ TEST(vector, addition)
     vector pos(1, 3);
     vector add(-2, 1);
 
-    EXPECT_EQ(pos + add, vector(-1, 4));
+    vector res = pos+add;
+
+    EXPECT_EQ( res, vector(-1, 4));
 }
