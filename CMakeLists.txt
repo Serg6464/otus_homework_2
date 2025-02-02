@@ -11,7 +11,9 @@ include_directories(/usr/include)
 include_directories(./include)
 
 set(SOURCE_FILES 
-    ./test/main.cpp 
+    ./test/main.cpp
+    ./src/vector.cpp
+    ./test/test_vector.cpp
      )
 
 find_package(Threads REQUIRED)
