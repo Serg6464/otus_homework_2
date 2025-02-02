@@ -9,7 +9,7 @@ public:
     vector(int x_val, int y_val);
 
     friend vector operator + (const vector &v1, const vector &v2);
-    friend int operator == (const vector &v1, const vector &v2)
+    friend int operator == (const vector &v1, const vector &v2);
 
 };
 
