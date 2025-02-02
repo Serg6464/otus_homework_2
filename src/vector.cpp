@@ -1,7 +1,7 @@
 #include <vector.h>
 
 vector::vector(int x_val, int y_val)
-    : x(x), y(y)
+    : x(x_val), y(y_val)
 {
 }
 
