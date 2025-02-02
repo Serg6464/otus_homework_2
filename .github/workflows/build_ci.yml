@@ -1,5 +1,5 @@
 
-name: homowork_cmake_ci
+name: homework_cmake_ci
 
 on:
     push:
