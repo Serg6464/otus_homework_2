@@ -15,9 +15,11 @@ set(SOURCE_FILES
     ./src/vector.cpp
     ./src/direction.cpp
     ./src/move.cpp
+    ./src/rotate.cpp
     ./test/test_vector.cpp
     ./test/test_direction.cpp
     ./test/test_move.cpp
+    ./test/test_rotate.cpp
      )
 
 find_package(Threads REQUIRED)
