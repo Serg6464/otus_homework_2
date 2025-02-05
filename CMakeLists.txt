@@ -13,8 +13,10 @@ include_directories(./include)
 set(SOURCE_FILES 
     ./test/main.cpp
     ./src/vector.cpp
+    ./src/direction.cpp
     ./src/move.cpp
     ./test/test_vector.cpp
+    ./test/test_direction.cpp
     ./test/test_move.cpp
      )
 
