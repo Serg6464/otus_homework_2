@@ -13,7 +13,9 @@ include_directories(./include)
 set(SOURCE_FILES 
     ./test/main.cpp
     ./src/vector.cpp
+    ./src/move.cpp
     ./test/test_vector.cpp
+    ./test/test_move.cpp
      )
 
 find_package(Threads REQUIRED)
