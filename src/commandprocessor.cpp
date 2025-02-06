@@ -1,4 +1,5 @@
 #include <commandprocessor.h>
+#include <exceptionstore.h>
 
 std::queue <std::shared_ptr<ICommand>> CommandProcessor::_commands = {};
 
@@ -6,15 +7,21 @@ void CommandProcessor::Execute()
 {
     while (!_commands.empty())
     {
+        std::shared_ptr<ICommand> cmd;        
         try
         {
-            std::shared_ptr<ICommand> cmd = _commands.front();
+
+            cmd = _commands.front();
             _commands.pop();
             cmd->Execute();
         }
         catch(const std::exception& e)
         {
-            //exception!!!
+            std::shared_ptr<ICommand> newCmd = CExceptionStore::Handle( cmd, e);
+            if( newCmd != nullptr )
+            {
+                newCmd->Execute();
+            }
         }
         
         /* code */
@@ -24,5 +31,8 @@ void CommandProcessor::Execute()
 
 void CommandProcessor::AppendCommand(std::shared_ptr<ICommand> cmd)
 {
-    _commands.push(cmd);
+    if( cmd != nullptr )
+    {
+        _commands.push(cmd);
+    }
 }

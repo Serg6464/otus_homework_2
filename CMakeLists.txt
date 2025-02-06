@@ -17,6 +17,9 @@ set(SOURCE_FILES
     ./src/move.cpp
     ./src/rotate.cpp
     ./src/commandprocessor.cpp
+    ./src/exceptionstore.cpp
+    ./src/consolelogwriter.cpp
+    ./src/logcommand.cpp
     ./test/test_vector.cpp
     ./test/test_direction.cpp
     ./test/test_move.cpp

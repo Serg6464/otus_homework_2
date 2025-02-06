@@ -29,4 +29,5 @@ TEST(commandprocessor, simplework)
     EXPECT_CALL( *cmd2, Execute()).WillOnce(Return());
 
     CmdProc.Execute();
+
 }
