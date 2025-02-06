@@ -16,10 +16,12 @@ set(SOURCE_FILES
     ./src/direction.cpp
     ./src/move.cpp
     ./src/rotate.cpp
+    ./src/commandprocessor.cpp
     ./test/test_vector.cpp
     ./test/test_direction.cpp
     ./test/test_move.cpp
     ./test/test_rotate.cpp
+    ./test/test_commandprocessor.cpp
      )
 
 find_package(Threads REQUIRED)
