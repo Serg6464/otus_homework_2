@@ -1,7 +1,7 @@
 #include <consolelogwriter.h>
 #include <iostream>
 
-void ConsleLogWriter::WriteToLog(const char *message)
+void ConsoleLogWriter::WriteToLog(const char *message)
 {
     std::cout << message << "\n";
 }

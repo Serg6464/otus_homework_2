@@ -1,14 +1,15 @@
 #include <exceptionstore.h>
 #include <logcommand.h>
+#include <iostream>
 
 std::map<const char *, handler_type_func_pointer> CExceptionStore::_map_Handlers; 
 
-std::shared_ptr<ICommand> DefaultHandler(std::shared_ptr<ICommand> cmd, const std::exception &excp)
+std::shared_ptr<ICommand> DefaultHandler(std::shared_ptr<ICommand> cmd, const IException &excp)
 {
     return std::shared_ptr<LogCommand>(new LogCommand(cmd, excp));
 }
 
-std::shared_ptr<ICommand> CExceptionStore::Handle(std::shared_ptr<ICommand> cmd, const std::exception &exception)
+std::shared_ptr<ICommand> CExceptionStore::Handle(std::shared_ptr<ICommand> cmd, const IException &exception)
 {
     std::string key = MakeExceptionName( cmd, exception );
     if( _map_Handlers.count(key.c_str()) )
@@ -16,7 +17,7 @@ std::shared_ptr<ICommand> CExceptionStore::Handle(std::shared_ptr<ICommand> cmd,
         return _map_Handlers[key.c_str()](cmd, exception);
     } else {
         //Default handler?
-        return std::shared_ptr<ICommand>(0);
+        return DefaultHandler(cmd, exception);
     }
 }
 

@@ -6,11 +6,11 @@
 #include <icommand.h>
 #include <typeinfo>
 #include <string>
+#include <iexception.h>
 
 //таблица обработчиков исключений
-//const ICommand&, const std::exception&
 
-typedef std::shared_ptr<ICommand> handler_type_func(std::shared_ptr<ICommand>, const std::exception &);
+typedef std::shared_ptr<ICommand> handler_type_func(std::shared_ptr<ICommand>, const IException &);
 
 typedef handler_type_func * handler_type_func_pointer;
 
@@ -27,7 +27,7 @@ class CExceptionStore
     public:
     ~CExceptionStore() = default;
 
-    static std::shared_ptr<ICommand> Handle(std::shared_ptr<ICommand>, const std::exception &exception);
+    static std::shared_ptr<ICommand> Handle(std::shared_ptr<ICommand>, const IException &exception);
 
     //использовать с MakeExceptionName для преобразования Типа команды и типа исключения в exception_name
     static void Register(char *exception_name, handler_type_func_pointer pHandler);

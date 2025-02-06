@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 #include <ilogwriter.h>
-#include <exception>
+#include <iexception.h>
 #include <typeinfo>
 
 class LogCommand: public ICommand
@@ -14,9 +14,9 @@ class LogCommand: public ICommand
 
     static std::shared_ptr<ILogWriter> _logwriter;
     public:
-    LogCommand(std::shared_ptr<ICommand>cmd, const std::exception &exception)
+    LogCommand(std::shared_ptr<ICommand>cmd, const IException &exception)
     {
-        _message = std::string(typeid(cmd).name())+":"+typeid(exception).name()+exception.what();
+        _message = std::string(typeid(cmd).name())+":"+typeid(exception).name()+":"+exception.what();
     };
     static void SelectLogStore( std::shared_ptr<ILogWriter> logstore)
     {

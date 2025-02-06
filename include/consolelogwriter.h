@@ -4,10 +4,10 @@
 #include <ilogwriter.h>
 
 //выводит ЛОГ в стандартную консоль
-class ConsleLogWriter: public ILogWriter
+class ConsoleLogWriter: public ILogWriter
 {
      public:
-    ConsleLogWriter() = default;
+    ConsoleLogWriter() = default;
     virtual void WriteToLog(const char *message);
 };
 

@@ -1,5 +1,6 @@
 #include <commandprocessor.h>
 #include <exceptionstore.h>
+#include <iexception.h>
 
 std::queue <std::shared_ptr<ICommand>> CommandProcessor::_commands = {};
 
@@ -15,7 +16,7 @@ void CommandProcessor::Execute()
             _commands.pop();
             cmd->Execute();
         }
-        catch(const std::exception& e)
+        catch(const IException& e)
         {
             std::shared_ptr<ICommand> newCmd = CExceptionStore::Handle( cmd, e);
             if( newCmd != nullptr )
