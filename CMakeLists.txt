@@ -20,11 +20,14 @@ set(SOURCE_FILES
     ./src/exceptionstore.cpp
     ./src/consolelogwriter.cpp
     ./src/logcommand.cpp
+    ./src/addcmd_command.cpp
+    ./src/exception_helpers.cpp
     ./test/test_vector.cpp
     ./test/test_direction.cpp
     ./test/test_move.cpp
     ./test/test_rotate.cpp
     ./test/test_commandprocessor.cpp
+    ./test/test_addcmd_command.cpp
      )
 
 find_package(Threads REQUIRED)
