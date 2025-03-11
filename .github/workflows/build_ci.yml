@@ -3,7 +3,7 @@ name: homework_cmake_ci
 
 on:
     push:
-        branches: [ "main", "develop" ]
+        branches: [ "main", "develop", "homework_3" ]
     pull_request:
         branches: [ "main", "develop" ]
 
