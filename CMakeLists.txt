@@ -9,6 +9,7 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
 include_directories(./include)
+include_directories(./test/mock)
 
 set(SOURCE_FILES 
     ./test/main.cpp
@@ -20,6 +21,8 @@ set(SOURCE_FILES
     ./test/test_direction.cpp
     ./test/test_move.cpp
     ./test/test_rotate.cpp
+    ./src/commandprocessor.cpp
+    ./test/test_commandprocessor.cpp
      )
 
 find_package(Threads REQUIRED)
