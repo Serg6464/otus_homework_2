@@ -7,4 +7,5 @@ class ICommand
     virtual void Execute() const = 0; 
 };
 
+
 #endif
