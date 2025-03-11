@@ -27,3 +27,29 @@ TEST(commandprocessor, simple_run)
 
     Processor.Execute();
 }
+
+class Exception1: public IException
+{
+    MOCK_METHOD( std::string, what, ());
+};
+
+TEST(commandprocessor, step3_test_exceptionhandler)
+{
+    std::shared_ptr<CMockCommandQueue> testqueue = std::make_shared<CMockCommandQueue>();
+    std::shared_ptr<CMockExceptionHandler> testexceptions = std::make_shared<CMockExceptionHandler>();
+    std::shared_ptr<CMockCommand> cmd = std::make_shared<CMockCommand>();
+    Exception1 *exception = new Exception1;
+
+    CommandProcessor Processor(testqueue, testexceptions);
+
+    EXPECT_CALL( *testqueue, GetCommand() )
+        .WillOnce(Return( cmd))
+        .WillOnce(Return( nullptr));
+
+    EXPECT_CALL( *testexceptions, GetHandler(_, _))
+        .WillOnce(Return(nullptr));
+
+    EXPECT_CALL( *cmd, Execute() ) .WillOnce(Throw(exception));
+
+    EXPECT_NO_THROW(Processor.Execute());
+}

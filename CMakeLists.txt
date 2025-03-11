@@ -23,6 +23,8 @@ set(SOURCE_FILES
     ./test/test_rotate.cpp
     ./src/commandprocessor.cpp
     ./test/test_commandprocessor.cpp
+    ./test/test_logcommand.cpp
+    ./test/test_logexceptioncommand.cpp
      )
 
 find_package(Threads REQUIRED)
