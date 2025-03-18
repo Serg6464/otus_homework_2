@@ -2,7 +2,7 @@
 #define __LOGECEPTIONCOMMAND_H__
 
 #include <icommand.h>
-#include <logcommand.h>
+#include <ilogwriter.h>
 #include <iexception.h>
 #include <memory>
 

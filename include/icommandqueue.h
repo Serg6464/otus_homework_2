@@ -13,6 +13,7 @@ public:
         \return Первая команда из очереди. Если очередь пуста, то возвращает nullptr.
     */
     virtual std::shared_ptr<ICommand> GetCommand() = 0;
+    virtual void AddCommand(std::shared_ptr<ICommand>) = 0;
 };
 
 #endif

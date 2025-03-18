@@ -25,6 +25,9 @@ set(SOURCE_FILES
     ./test/test_commandprocessor.cpp
     ./test/test_logcommand.cpp
     ./test/test_logexceptioncommand.cpp
+    ./test/test_example_logbyexception.cpp
+    ./test/test_repeatedcommand.cpp
+    ./test/test_repeatcommandhandler.cpp
      )
 
 find_package(Threads REQUIRED)

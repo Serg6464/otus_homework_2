@@ -3,14 +3,8 @@
 
 #include <icommand.h>
 #include <string>
-#include <memory> 
-
-class ILogWriter
-{
-    public:
-    ~ILogWriter() = default;
-    virtual void Write(std::string message) = 0;
-};
+#include <memory>
+#include <ilogwriter.h>
 
 class LogCommand: public ICommand
 {

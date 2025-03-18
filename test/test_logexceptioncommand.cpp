@@ -3,17 +3,12 @@
 #include <gmock/gmock-matchers.h>
 #include <logexceptioncommand.h>
 #include <memory>
+#include <mock_logwriter.h>
 
 using ::testing::Throw;
 using ::testing::Return;
 using ::testing::AnyNumber;
 using ::testing::_;
-
-class CMockLogWriter: public ILogWriter
-{
-    public:
-    MOCK_METHOD( void, Write, (std::string str));
-};
 
 class LogExException1: public IException
 {
@@ -31,7 +26,7 @@ TEST(logexceptioncommand, basic_test)
         .WillOnce(Return("message to write"));
 
     EXPECT_CALL( *Log, Write(std::string("message to write")) )
-        .Times(1);;
+        .Times(1);
 
     cmd->Execute();
 }
