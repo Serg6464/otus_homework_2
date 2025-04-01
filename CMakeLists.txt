@@ -17,6 +17,9 @@ set(SOURCE_FILES
     ./src/direction.cpp
     ./src/move.cpp
     ./src/rotate.cpp
+    ./src/checkfuelcommand.cpp
+    ./src/burnfuelcommand.cpp
+    ./src/macrocommand.cpp
     ./test/test_vector.cpp
     ./test/test_direction.cpp
     ./test/test_move.cpp
@@ -28,6 +31,10 @@ set(SOURCE_FILES
     ./test/test_example_logbyexception.cpp
     ./test/test_repeatedcommand.cpp
     ./test/test_repeatcommandhandler.cpp
+    ./test/test_checkfuelcommand.cpp
+    ./test/test_burnfuelcommand.cpp
+    ./test/test_macrocommand.cpp
+    ./test/test_linearmovefuelburn.cpp
      )
 
 find_package(Threads REQUIRED)
